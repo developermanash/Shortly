@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .url-output {
+            background-color: #eaf1f8;
+            border: 1px solid #dbe2e8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .url-output a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border: 1px solid #3498db;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #3498db;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 600px) {
+            input[type="text"] {
+                width: 100%;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>URL Shortener</h1>
+
+        <% if (locals.id) { %>
+            <div class="url-output">
+                <p>URL Generated:</p>
+                <a href="http://localhost:YOUR_PORT/url/<%= id %>" target="_blank">
+                    https://localhost:YOUR_PORT/url/<%= id %>
+                </a>
+            </div>
+        <% } %>
+
+        <form method="post" action="/url">
+            <label for="url">Enter your URL here</label>
+            <input type="text" name="url" placeholder="https://example.com" required>
+            <button type="submit">Generate</button>
+        </form>
+
+        <div class="footer">
+            <p>Powered by <a href="https://yourwebsite.com" target="_blank">Manash</a></p>
+        </div>
+    </div>
+</body>
+</html>
