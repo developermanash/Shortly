@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,6 +106,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>URL Shortener</h1>
@@ -112,21 +114,23 @@
         <% if (locals.id) { %>
             <div class="url-output">
                 <p>URL Generated:</p>
-                <a href="http://localhost:YOUR_PORT/url/<%= id %>" target="_blank">
-                    https://localhost:YOUR_PORT/url/<%= id %>
+                <a href="http://localhost:<%=port%>/url/<%= id %>" target="_blank">
+                    http://localhost:<%= port %>/url/<%= id %>
                 </a>
+
             </div>
-        <% } %>
+            <% } %>
 
-        <form method="post" action="/url">
-            <label for="url">Enter your URL here</label>
-            <input type="text" name="url" placeholder="https://example.com" required>
-            <button type="submit">Generate</button>
-        </form>
+                <form method="post" action="/url">
+                    <label for="url">Enter your URL here</label>
+                    <input type="text" name="url" placeholder="https://example.com" required>
+                    <button type="submit">Generate</button>
+                </form>
 
-        <div class="footer">
-            <p>Powered by <a href="https://yourwebsite.com" target="_blank">Manash</a></p>
-        </div>
+                <div class="footer">
+                    <p>Powered by <a href="https://yourwebsite.com" target="_blank">Manash</a></p>
+                </div>
     </div>
 </body>
+
 </html>
